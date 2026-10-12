@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>REALT BY — Прототип</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,6 @@
 
 <div class="phone">
 
-    <!-- ========== 1. SPLASH ========== -->
     <div class="screen active" id="splash">
         <div class="brand">REALT <span>BY</span></div>
         <div class="subtitle">Агентство недвижимости</div>
@@ -24,7 +23,6 @@
         </span>
     </div>
 
-    <!-- ========== 2. ГЛАВНАЯ ========== -->
     <div class="screen" id="home">
         <header class="app-header">
             <h1 class="logo">REALT <span>BY</span></h1>
@@ -45,7 +43,7 @@
             </div>
 
             <div class="categories">
-                <div class="cat" onclick="filterCat('Квартиры')">
+                <div class="cat" data-cat="Квартиры" onclick="filterCat('Квартиры', this)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="4" y="3" width="16" height="18" rx="1"></rect>
                         <line x1="9" y1="8" x2="10" y2="8"></line>
@@ -57,16 +55,14 @@
                     </svg>
                     <span>Квартиры</span>
                 </div>
-                <div class="cat" onclick="filterCat('Дома')">
+                <div class="cat" data-cat="Дома" onclick="filterCat('Дома', this)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M3 11l9-8 9 8"></path>
                         <path d="M5 10v10h14V10"></path>
-                        <line x1="10" y1="20" x2="10" y2="14"></line>
-                        <line x1="14" y1="20" x2="14" y2="14"></line>
                     </svg>
                     <span>Дома</span>
                 </div>
-                <div class="cat" onclick="filterCat('Коммерческая недвижимость')">
+                <div class="cat" data-cat="Коммерческая недвижимость" onclick="filterCat('Коммерческая недвижимость', this)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="4" y="3" width="16" height="18"></rect>
                         <line x1="8" y1="7" x2="16" y2="7"></line>
@@ -103,7 +99,6 @@
         </footer>
     </div>
 
-    <!-- ========== 3. ЭКРАН ОБЪЕКТА ========== -->
     <div class="screen" id="detail">
         <div class="detail-hero">
             <img id="detailImg" src="" alt="">
@@ -190,7 +185,6 @@
         </footer>
     </div>
 
-    <!-- ========== 4. ЗАЯВКА ОТПРАВЛЕНА ========== -->
     <div class="screen" id="success">
         <div class="success-check">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -261,7 +255,6 @@
         <button class="btn-outline" onclick="go('home')">Смотреть другие объекты</button>
     </div>
 
-    <!-- ========== 5. ПРОФИЛЬ ========== -->
     <div class="screen" id="profile">
         <header class="app-header">
             <h2 class="header-title">Профиль</h2>

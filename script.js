@@ -1,4 +1,3 @@
-/* ============ ДАННЫЕ ============ */
 const OBJECTS = [
     {
         id: 1,
@@ -32,7 +31,6 @@ const OBJECTS = [
 let currentFilter = 'all';
 let currentSearch = '';
 
-/* ============ ПЕРЕКЛЮЧЕНИЕ ЭКРАНОВ ============ */
 function go(screenId) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(screenId).classList.add('active');
@@ -43,7 +41,6 @@ function go(screenId) {
     });
 }
 
-/* ============ РЕНДЕР КАРТОЧЕК ============ */
 function renderCards() {
     const container = document.getElementById('cardsContainer');
     let list = OBJECTS;
@@ -78,7 +75,6 @@ function renderCards() {
     `).join('');
 }
 
-/* ============ ОТКРЫТИЕ ОБЪЕКТА ============ */
 function openDetail(id) {
     const o = OBJECTS.find(x => x.id === id);
     if (!o) return;
@@ -92,35 +88,38 @@ function openDetail(id) {
     go('detail');
 }
 
-/* ============ СЕРДЕЧКО ============ */
 function toggleHeart(btn) {
     btn.classList.toggle('active');
 }
 
-/* ============ ФИЛЬТР ПО КАТЕГОРИИ ============ */
-function filterCat(cat) {
-    currentFilter = cat;
+function filterCat(cat, element) {
+    if (currentFilter === cat) {
+        currentFilter = 'all';
+        document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
+    } else {
+        currentFilter = cat;
+        document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
+        if (element) element.classList.add('active');
+    }
     renderCards();
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
 }
 
-/* ============ ТАБЫ КУПИТЬ / АРЕНДА ============ */
 document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         currentFilter = 'all';
+        document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
         renderCards();
     });
 });
 
-/* ============ ПОИСК ============ */
 document.getElementById('searchInput').addEventListener('input', (e) => {
     currentSearch = e.target.value;
     renderCards();
 });
 
-/* ============ СТАРТ ============ */
 document.addEventListener('DOMContentLoaded', () => {
     renderCards();
 });
