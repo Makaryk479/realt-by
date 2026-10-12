@@ -695,3 +695,18 @@ body {
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
 }
+@media (max-width: 600px) {
+    .phone {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100% !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+    body {
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+}
