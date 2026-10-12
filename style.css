@@ -696,17 +696,30 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 @media (max-width: 600px) {
-    .phone {
-        width: 100vw !important;
-        height: 100vh !important;
-        max-width: 100% !important;
-        max-height: 100vh !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden !important;
+        position: fixed;
     }
     body {
         padding: 0 !important;
         margin: 0 !important;
         display: block !important;
+    }
+    .phone {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        overflow: hidden !important;
+    }
+    .app-content {
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    .app-nav {
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
     }
 }
