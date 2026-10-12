@@ -716,10 +716,16 @@ body {
         box-shadow: none !important;
         overflow: hidden !important;
     }
+    .app-header {
+        padding-top: calc(16px + env(safe-area-inset-top, 44px)) !important;
+    }
     .app-content {
         padding-bottom: env(safe-area-inset-bottom, 20px);
     }
     .app-nav {
         padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    #splash {
+        padding-top: calc(40px + env(safe-area-inset-top, 44px)) !important;
     }
 }
